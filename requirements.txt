@@ -1,0 +1,32 @@
+# python 3.10-3.12 (transformers 5 needs >=3.10, numpy 1.26 needs <=3.12)
+#
+# training stack pinned to the versions the baseline adapters were trained with
+# (peft 0.18.1 is in the adapter configs, saved TrainingArguments/ tokenizer
+# match transformers 5.0/ 5.1). DTW loss divides by num_items_in_batch so it
+# depends on how the Trainer normalises the loss - if transformers gets bumped,
+# rerun the DTW baseline too
+#
+# torch: install the wheel for the node's GPU/ driver first, e.g.
+#   pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cu126
+# (cu126 still has Pascal/ sm_60 kernels for the P100, newer CUDA builds might not)
+torch==2.9.1
+transformers==5.1.0
+peft==0.18.1
+bitsandbytes==0.49.1
+accelerate==1.12.0
+datasets==4.5.0
+
+# data pipeline
+numpy==1.26.4
+pandas==2.2.3
+pyarrow==23.0.0
+pyyaml==6.0.3
+google-genai==1.63.0
+finnhub-python==2.4.27
+yfinance==1.1.0
+requests==2.32.5
+tqdm==4.67.3
+
+# secrets / tests
+python-dotenv==1.2.1
+pytest==9.0.2

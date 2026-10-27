@@ -1,0 +1,26 @@
+# secrets (template: .env.example)
+.env
+HF_TOKEN.txt
+# data and artifacts (rebuilt via download scripts / training).
+# data/splits/ IS tracked so the cluster gets train/val/test via git pull.
+data/*
+!data/splits/
+out/
+# logs/ must exist before sbatch starts (#SBATCH --output=logs/...)
+logs/*
+!logs/.gitkeep
+*.safetensors
+*.pt
+*.bin
+# python / tooling
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+.vscode/
+*.jsonl
+!data/splits/*.jsonl
+dtw_loss_run_results
