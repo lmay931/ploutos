@@ -1,6 +1,6 @@
 # Ploutos: multi-expert LLM stock prediction
 
-This is my reimplementation of the Ploutos pipeline for stock movement prediction.
+This is my reimplementation of the Ploutos pipeline for stock movement prediction, first introduced here: https://arxiv.org/abs/2403.00782.
 Three experts look at each stock/ date and give a BUY or SELL call:
 
 - **price/macro** (pm): deterministic, computed straight from price features
